@@ -1,0 +1,19 @@
+# Wetube Reloaded
+
+/ -> Home
+/join -> Join
+/login -> Login
+/search -> Search
+
+/users/:id -> See User
+/users/logout -> Log out
+/users/edit -> Edit MY Profile
+/users/remove -> Remove MY Profile
+
+/videos/:id -> See Video
+/videos/:id/edeit -> Edit Video
+/videos/:id/delete -> Delete Video
+/videos/upload -> Upload Video
+
+
+
