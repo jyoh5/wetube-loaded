@@ -1,3 +1,6 @@
+import Video from "../models/Video"
+
+
 // const fakeUser = {
 //     username: "jyoh",
 //     loggedIn: false,
@@ -6,42 +9,33 @@
 
 // const videos = [1,2,3,4,5,6,7,8,9,10];
     // const videos = [];
-    const videos = [
-        {
-            title:"First video",
-            rating: 5,
-            comments: 2,
-            createdAt: "2 minutes ago",
-            views: 59,
-            id: 1
-        },
-        {
-            title:"Seconde video",
-            rating: 5,
-            comments: 2,
-            createdAt: "2 minutes ago",
-            views: 59,
-            id: 2
-        },
-        {
-            title:"Third video",
-            rating: 5,
-            comments: 2,
-            createdAt: "2 minutes ago",
-            views: 59,
-            id: 3
-        },
-    ]
 
 // export const trending = (req, res) => res.send("Home page Videos");
-export const trending = (req, res) => res.render("home", {pageTitle : "Home", videos});
-export const see = (req, res) => {
-    const { id } = req.params;
-    const video = videos[id - 1];
-    res.render("watch", {pageTitle : `Watching ${video.title}`})
+export const home = (req, res) => {
+    Video.find({}, (error, videos) => {
+        console.log("errors", error);
+        console.log("videos", videos);
+        return res.render("home", { pageTitle : "Home", videos })
+    });
 };
-export const edit = (req, res) => res.render("edit", {pageTitle : "Edit"});
-export const search = (req, res) => res.send("Search Videos");
-export const upload = (req, res) => res.send("Upload Videos");
-export const deleteVideo = (req, res) => res.send("Delete Videos");
+export const watch = (req, res) => {
+    const { id } = req.params;
+    return res.render("watch", {pageTitle : `Watching` })
+};
+export const editGet = (req, res) => {
+    const { id } = req.params;
+    return res.render("edit", {pageTitle : `Editing`});
+}
+export const editPost = (req, res) => {
+    const { id } = req.params;
+    const { title } = req.body;
+    return res.redirect(`/videos/${id}`);
+}
+export const uploadGet = (req, res) => {
+    return res.render("upload", {pageTitle : "upload video"});
+}
+export const uploadPost = (req, res) => {
+    const { title } = req.body;
+    return res.redirect("/");
+}
 
