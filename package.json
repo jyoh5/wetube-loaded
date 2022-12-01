@@ -7,7 +7,7 @@
     "url": "git+https://github.com/jyoh5/wetube-loaded.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/init.js"
+    "dev": "nodemon --watch '/src/**' --exec babel-node src/init.js"
   },
   "author": "jyoh",
   "license": "MIC",
@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/jyoh5/wetube-loaded#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "express": "^4.18.2",
     "mongoose": "^6.7.3",
     "morgan": "^1.10.0",
