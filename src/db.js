@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://wetube-mongo:27017/wetube")
+mongoose.connect(process.env.DB_URL)
 
 const db = mongoose.connection;
 
