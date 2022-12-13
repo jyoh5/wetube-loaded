@@ -11,7 +11,7 @@ block content
         br
         //- a(href="https://github.com/login/oauth/authorize?client_id=ea197dc3f2ce607a5870&allow_signup=false&scope=user:email") Continue with Github
         a(href="/users/github/start") Continue with Github &rarr;
-    hr
-    div
+        include partials/social-login
+    div.auth-switch
         span Don't have an account? 
         a(href="/join") Create one now &rarr;
